@@ -1,0 +1,16 @@
+{
+    "name": "connect-fastcgi",
+    "version": "0.0.1",
+    "description": "connect middleware to pass requests to FastCGI server",
+    "main": "index.js",
+    "author": "Pavel Kurnosov <pashky@gmail.com>",
+    "keywords": ["connect","middleware","fastcgi","fpm","php"],
+    "repository" : {
+        "type": "git",
+        "url": "https://pashky@github.com/pashky/connect-fastcgi.git"
+    },
+    "dependencies": {
+        "fastcgi-parser": "0.1.x"
+    },
+    "engines": { "node": "*" }
+}
