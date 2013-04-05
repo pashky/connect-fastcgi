@@ -24,7 +24,7 @@ var app = connect()
         .use(connect.logger())
         .use(connect.static('./assets'))
         .listen(3000);
-``
+```
 
 Available options:
 
