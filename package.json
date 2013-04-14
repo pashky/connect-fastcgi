@@ -1,6 +1,6 @@
 {
     "name": "connect-fastcgi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "connect middleware to pass requests to FastCGI server",
     "main": "index.js",
     "author": {
