@@ -164,6 +164,8 @@ module.exports = function fastcgi(newOptions) {
             writer = new fastcgi.writer();
             parser = new fastcgi.parser();
             
+            writer.encoding = 'binary';
+            
             var body="", hadheaders = false;
 
             parser.onRecord = function(record) {
