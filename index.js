@@ -262,7 +262,7 @@ module.exports = function fastcgi(newOptions) {
             ["SCRIPT_NAME", script_file],
             ["PATH_INFO", script_file],
             ["DOCUMENT_URI", script_file],
-            ["REQUEST_URI", request.url],
+            ["REQUEST_URI", request.headers['x-request-uri'] ? request.headers['x-request-uri'] : request.url],
             ["DOCUMENT_ROOT", script_dir],
             ["PHP_SELF", script_file],
             ["GATEWAY_PROTOCOL", "CGI/1.1"],
