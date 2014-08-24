@@ -131,7 +131,7 @@ module.exports = function fastcgi(newOptions) {
                     header.contentLength = collectedStdin[j].length;
                     header.paddingLength = 0;
                     writer.writeHeader(header);
-                    writer.writeBody(collectedStdin[j].toString());        
+                    writer.writeBody(collectedStdin[j]);        
                     connection.write(writer.tobuffer());
                 }
                 collectedStdin = [];                    
