@@ -131,7 +131,7 @@ module.exports = function fastcgi(newOptions) {
                     header.contentLength = collectedStdin[j].length;
                     header.paddingLength = 0;
                     writer.writeHeader(header);
-                    writer.writeBody(collectedStdin[j].toString());        
+                    writer.writeBody(collectedStdin[j]);        
                     connection.write(writer.tobuffer());
                 }
                 collectedStdin = [];                    
@@ -253,7 +253,8 @@ module.exports = function fastcgi(newOptions) {
         var script_dir = options.root;
         var script_file = url.parse(request.url).pathname;
         
-        var qs = url.parse(request.url).query ? url.parse(request.url).query : '';
+        var request_uri = request.headers['x-request-uri'] ? request.headers['x-request-uri'] : request.url;
+        var qs = url.parse(request_uri).query ? url.parse(request_uri).query : '';
         var params = makeHeaders(request.headers, [
             ["SCRIPT_FILENAME",script_dir + script_file],
             ["REMOTE_ADDR",request.connection.remoteAddress],
@@ -262,7 +263,7 @@ module.exports = function fastcgi(newOptions) {
             ["SCRIPT_NAME", script_file],
             ["PATH_INFO", script_file],
             ["DOCUMENT_URI", script_file],
-            ["REQUEST_URI", request.url],
+            ["REQUEST_URI", request_uri],
             ["DOCUMENT_ROOT", script_dir],
             ["PHP_SELF", script_file],
             ["GATEWAY_PROTOCOL", "CGI/1.1"],
