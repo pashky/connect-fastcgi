@@ -4,7 +4,7 @@ module.exports = function fastcgi(newOptions) {
     , path    = require("path")
     , http    = require("http")
     , net     = require("net")
-    , sys     = require("sys")
+    , util     = require("util")
     , fastcgi = require("fastcgi-parser");
 
     var debug = 0 ? console : { log: function(){}, dir: function(){} };
@@ -231,7 +231,7 @@ module.exports = function fastcgi(newOptions) {
         });
 
         connection.addListener("error", function(err) {
-            sys.puts(sys.inspect(err.stack));
+            console.log(util.inspect(err.stack));
             connection.end();
         });
 

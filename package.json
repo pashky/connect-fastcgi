@@ -13,7 +13,8 @@
         "url": "https://github.com/pashky/connect-fastcgi.git"
     },
     "dependencies": {
-        "fastcgi-parser": "0.1.x"
+        "fastcgi-parser": "0.1.x",
+        "util": "0.10.3"
     },
     "engines": { "node": "*" }
 }
